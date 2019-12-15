@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include "screenshot.h"
+#include <QHotkey>
+#include <QKeySequence>
+#include <QMessageBox>
+#include <QSystemTrayIcon>
 
 namespace Ui {
 class ScreenShotMainWindow;
@@ -17,6 +21,7 @@ public:
 
 private:
     Ui::ScreenShotMainWindow *ui;
+    QSystemTrayIcon *trayIcon;
 };
 
 #endif // SCREENSHOTMAINWINDOW_H

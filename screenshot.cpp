@@ -143,6 +143,7 @@ void ScreenShot::keyPressEvent(QKeyEvent* e){
         if(curMode == 2){
             curMode = 0;
             this->setCursor(QCursor(Qt::ArrowCursor));
+            cutRect = QRect(0, 0, 0, 0);
             curSizeInfo->close();
             update();
         }else{
@@ -193,6 +194,7 @@ void ScreenShot::mouseReleaseEvent(QMouseEvent* e){
              && generateOperation(e->pos()) == OUTSIDE){
         curMode = 0;
         this->setCursor(QCursor(Qt::ArrowCursor));
+        cutRect = QRect(0, 0, 0, 0);
         curSizeInfo->close();
     }
 

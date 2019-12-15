@@ -14,10 +14,6 @@ ScreenShot::ScreenShot(QWidget *parent) : QWidget(parent){
 
     generateGrayBackground();
     showFullScreen();
-//    Qt::WindowFlags flags = windowFlags();
-//    flags |= Qt::WindowStaysOnTopHint;
-//    setWindowFlags(flags);
-//    show();
 }
 
 void ScreenShot::generateGrayBackground(){
@@ -126,6 +122,7 @@ void ScreenShot::paintEvent(QPaintEvent*){
         painter.drawPixmap(QPoint(cutRect.x(),cutRect.y()), *backgroundOrigin, cutRect);//原色背景
         painter.drawRect(cutRect);                                                      //红色边框
         if(curSizeInfo != nullptr){
+//            qDebug() << width() << ", " << height();
             curSizeInfo->changePos(cutRect.bottomRight(), width(), height());           //在右下端画出图片大小
             curSizeInfo->changeSize(cutRect.size());
         }
@@ -179,6 +176,7 @@ void ScreenShot::mousePressEvent(QMouseEvent* e){
         startPoint = e->pos();
         cutRect = QRect(startPoint, startPoint);
         curSizeInfo = new SizeInfo(this);
+        update();
     }else if(curMode == 2){                                 //已选中，进行操作
         pressPoint = new QPoint(e->pos());
     }

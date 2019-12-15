@@ -3,10 +3,7 @@
 
 int main(int argc, char *argv[]){
     QApplication a(argc, argv);
+    a.setQuitOnLastWindowClosed(false);             //没有可见窗口不会关闭
     ScreenShotMainWindow w;
-    w.show();
-//    w.close();
-//    a.quit();
-//    return 0;
     return a.exec();
 }

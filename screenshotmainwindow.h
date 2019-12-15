@@ -7,6 +7,7 @@
 #include <QKeySequence>
 #include <QMessageBox>
 #include <QSystemTrayIcon>
+#include <QMenu>
 
 namespace Ui {
 class ScreenShotMainWindow;
@@ -21,7 +22,11 @@ public:
 
 private:
     Ui::ScreenShotMainWindow *ui;
-    QSystemTrayIcon *trayIcon;
+    QSystemTrayIcon* trayIcon;                      //托盘图标
+    QMenu* iconMenu;                                //托盘菜单
+    QAction* quitAction;                            //退出操作
+
+    void closeEvent(QCloseEvent* e);
 };
 
 #endif // SCREENSHOTMAINWINDOW_H
